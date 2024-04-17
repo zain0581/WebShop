@@ -8,6 +8,7 @@
         public int? IsAvailable { get; set; }
         public string? ImageUrl { get; set; }
 
+
         public CategoryDto? Category { get; set; }
         public List<SupplierDTO>? Suppliers { get; set; }
     }

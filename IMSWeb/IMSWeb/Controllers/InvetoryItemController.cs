@@ -1,4 +1,5 @@
 ﻿using IMSWeb.Dal;
+using IMSWeb.Dto;
 using IMSWeb.Interface;
 using IMSWeb.Models;
 using Microsoft.AspNetCore.Http;
@@ -34,18 +35,35 @@ namespace IMSWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateInventoryItems(InventoryItems items)
+        public async Task<IActionResult> CreateInventoryItems([FromBody] InventoryItemDto inventoryItemDto)
         {
-            bool result = await InventoryItemRepo.CreateInventoryItem(items);
+            bool result = await InventoryItemRepo.CreateInventoryItem(inventoryItemDto);
+
             if (!result)
             {
                 return NotFound();
             }
-            return Ok(items);
+
+            return Ok(inventoryItemDto);
         }
 
 
-      
+        [HttpPost("CreateInventoryItemWithRelations")]
+        public async Task<IActionResult> CreateInventoryItemWithRelations([FromBody] InventoryItemDto inventoryItemDto)
+        {
+            bool result = await InventoryItemRepo.CreateInventoryItemWithRelations(inventoryItemDto);
+
+            if (!result)
+            {
+                return NotFound();
+            }
+
+            return Ok(inventoryItemDto);
+        }
+
+
+
+
 
         [HttpDelete]
         public async Task<IActionResult> DeleteInventoryItem(int id)
@@ -58,16 +76,17 @@ namespace IMSWeb.Controllers
             return Ok("InventoryItem deleted successfully");
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateInventoryItem(int id,[FromBody] InventoryItems inventoryItems)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateInventoryItem(int id, [FromBody] InventoryItemDto inventoryItemDto)
         {
-            var updateditemes = await InventoryItemRepo.UpdateInventoryItem(id, inventoryItems);
-            if (!updateditemes)
+            var updated = await InventoryItemRepo.UpdateInventoryItemWithRelations(id, inventoryItemDto);
+            if (!updated)
             {
                 return NotFound();
             }
-            return Ok(updateditemes);
+            return Ok(await InventoryItemRepo.GetInventoryItemById(id));
         }
+
 
         [HttpGet("id/{id}")]
         public async Task<IActionResult> GetInventoryItemById(int id)
