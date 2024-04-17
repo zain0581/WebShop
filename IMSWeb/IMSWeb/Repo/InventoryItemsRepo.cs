@@ -1,4 +1,5 @@
 ﻿using IMSWeb.Dal;
+using IMSWeb.Dto;
 using IMSWeb.Interface;
 using IMSWeb.Models;
 using Microsoft.EntityFrameworkCore;
@@ -32,9 +33,35 @@ namespace IMSWeb.Repo
             return true;
         }
 
-        public async Task<List<InventoryItems>> GetAllInventoryItems()
+        public async Task<List<InventoryItemDto>> GetAllInventoryItems()
         {
-            return await _context.InventoryItems.ToListAsync();
+            var inventoryItems = await _context.InventoryItems
+                .Include(i => i.Category)
+                .Include(i => i.Suppliers)
+                .ToListAsync();
+
+            var inventoryItemDTOs = inventoryItems.Select(i => new InventoryItemDto
+            {
+                Id = i.Id,
+                Name = i.Name,
+                Description = i.Description,
+                IsAvailable = i.IsAvailable,
+                ImageUrl = i.ImageUrl,
+                Category = i.Category != null ? new CategoryDto
+                {
+                    Id = i.Category.Id,
+                    Name = i.Category.Name
+                    // Map other category properties as needed
+                } : null, // Set CategoryDto to null if Category is null
+                Suppliers = i.Suppliers != null ? i.Suppliers.Select(s => new SupplierDTO
+                {
+                    Id = s.Id,
+                    Name = s.Name
+                    // Map other supplier properties as needed
+                }).ToList() : null // Set Suppliers to null if it's null
+            }).ToList();
+
+            return inventoryItemDTOs;
         }
 
         public async Task<InventoryItems> GetInventoryItemById(int id)
