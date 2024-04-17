@@ -1,6 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\IMSWeb",
+    "\\IMSWeb\\IMSWeb",
+    "\\IMSWeb\\IMSWeb\\Dto",
+    "\\UI",
+    "\\UI\\Angular"
   ],
   "PreviewInSolutionExplorer": false
 }
