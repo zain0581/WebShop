@@ -75,6 +75,7 @@ namespace IMSWeb.Repo
                             IsAvailable = i.IsAvailable,
                             ImageUrl = i.ImageUrl
                         }).ToList()
+
                     })
                     .ToListAsync();
             }
