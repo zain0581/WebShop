@@ -3,6 +3,7 @@ using IMSWeb.Dto;
 using IMSWeb.Interface;
 using IMSWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace IMSWeb.Repo
 {
@@ -50,19 +51,24 @@ namespace IMSWeb.Repo
                 Category = i.Category != null ? new CategoryDto
                 {
                     Id = i.Category.Id,
-                    Name = i.Category.Name
+                    Name = i.Category.Name,
+                    Description = i.Category.Description,
+                    IsActive = i.Category.IsActive,
+                    ImageUrl = i.Category.ImageUrl
                     // Map other category properties as needed
                 } : null, // Set CategoryDto to null if Category is null
                 Suppliers = i.Suppliers != null ? i.Suppliers.Select(s => new SupplierDTO
                 {
                     Id = s.Id,
-                    Name = s.Name
+                    Name = s.Name,
+                    Phone = s.Phone
                     // Map other supplier properties as needed
                 }).ToList() : null // Set Suppliers to null if it's null
             }).ToList();
 
             return inventoryItemDTOs;
         }
+
 
         public async Task<InventoryItems> GetInventoryItemById(int id)
         {
