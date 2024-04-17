@@ -49,9 +49,16 @@ namespace IMSWeb.Repo
             return true;
         }
 
-        public Task<List<Category>> GetAllCategories()
+        public async Task<List<CategoryDto>> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return await _dbcontext.Categories.Select(x=> new CategoryDto
+            {
+                Name=x.Name,
+                Description=x.Description,
+                IsActive=x.IsActive,
+                ImageUrl=x.ImageUrl
+
+            }).ToListAsync();
         }
 
         public async Task<List<Category>> GetAllCategoriesWithInventoryItems()
@@ -87,13 +94,8 @@ namespace IMSWeb.Repo
         }
 
 
-        //public async Task<Category> GetCategoryByIdd(int id)
-        //{
-        //    return await _dbcontext.Categories.Include(d=>d.InventoryItems).FirstOrDefaultAsync(d=>d.Id==id);
-        //}
 
-
-        public async Task<CategoryDto> GetCategoryByIdWithItem(int id)
+        public async Task<Category> GetCategoryByIdWithItem(int id)
         {
             var category = await _dbcontext.Categories
                 .Include(c => c.InventoryItems)
@@ -104,14 +106,14 @@ namespace IMSWeb.Repo
                 return null; // or throw an exception, depending on your requirement
             }
 
-            return new CategoryDto
+            return new Category
             {
                 Id = category.Id,
                 Name = category.Name,
                 Description = category.Description,
                 ImageUrl = category.ImageUrl,
                 IsActive = category.IsActive,
-                InventoryItems = category.InventoryItems.Select(ii => new InventoryItemDto
+                InventoryItems = category.InventoryItems.Select(ii => new InventoryItems
                 {
                     Id = ii.Id,
                     Name = ii.Name,
@@ -124,7 +126,7 @@ namespace IMSWeb.Repo
         }
     
 
-        public async Task<CategoryDto> GetCategoryByName(string name)
+        public async Task<Category> GetCategoryByName(string name)
         {
             var category = await _dbcontext.Categories
                 .Include(c => c.InventoryItems)
@@ -134,21 +136,21 @@ namespace IMSWeb.Repo
             {
                 return null; // or throw an exception, depending on your requirement
             }
-            return new CategoryDto
+            return new Category
             {
                 Id = category.Id,
                 Name = category.Name,
                 Description = category.Description,
                 ImageUrl = category.ImageUrl,
                 IsActive = category.IsActive,
-                InventoryItems = category.InventoryItems.Select(ii => new InventoryItemDto
+                InventoryItems = category.InventoryItems.Select(ii => new InventoryItems
                 {
                     Id = ii.Id,
                     Name = ii.Name,
                     Description = ii.Description,
                     IsAvailable = ii.IsAvailable,
                     ImageUrl = ii.ImageUrl,
-                    // You can include other properties as needed
+                    // we can include other properties as needed
                 }).ToList()
             };
 

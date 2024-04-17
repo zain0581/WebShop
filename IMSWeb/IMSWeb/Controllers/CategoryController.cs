@@ -21,12 +21,12 @@ namespace IMSWeb.Controllers
         }
 
 
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllCategory()
-        //{
-        //    var category = await CategoryRepo.GetAllCategories();
-        //    return Ok(category);
-        //}
+        [HttpGet("OnlyCategory")]
+        public async Task<IActionResult> GetAllCategory()
+        {
+            var category = await CategoryRepo.GetAllCategories();
+            return Ok(category);
+        }
 
 
         [HttpGet]
