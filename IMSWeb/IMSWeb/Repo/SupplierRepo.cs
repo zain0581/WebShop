@@ -14,6 +14,21 @@ namespace IMSWeb.Repo
             _context = context;
            
         }
+        public async Task<List<SupplierDTO>> GetSuppliers()
+        {
+            var suppliers = await _context.Suppliers.ToListAsync();
+
+            // Map suppliers to DTOs
+            var supplierDTOs = suppliers.Select(supplier => new SupplierDTO
+            {
+                Id = supplier.Id,
+                Name = supplier.Name,
+                Email = supplier.Email,
+                Phone = supplier.Phone
+            }).ToList();
+
+            return supplierDTOs;
+        }
 
         public async Task<List<SupplierDTO>> GetAllSuppliers()
         {

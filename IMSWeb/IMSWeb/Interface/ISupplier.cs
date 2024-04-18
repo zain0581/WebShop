@@ -6,6 +6,7 @@ namespace IMSWeb.Interface
     public interface ISupplier
     {
        public Task<List<SupplierDTO>> GetAllSuppliers();
+        public Task<List<SupplierDTO>> GetSuppliers();
        public Task<Supplier> GetSupplierById(int id);
        public Task<bool> CreateSupplier(Supplier supplier);
        public Task<bool> UpdateSupplier(int id, Supplier supplier);

@@ -1,5 +1,6 @@
 ﻿using IMSWeb.Interface;
 using IMSWeb.Models;
+using IMSWeb.Repo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,13 @@ namespace IMSWeb.Controllers
         public SupplierController(ISupplier supplierRepository)
         {
             _supplierRepository = supplierRepository;
+        }
+
+        [HttpGet("GettingSuppliersOnly")]
+        public async Task<IActionResult> GetSuppliers()
+        {
+            var suppliers = await _supplierRepository.GetSuppliers();
+            return Ok(suppliers);
         }
 
         [HttpGet]

@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\models\\inventoryitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\models\\inventoryitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\dto\\inventoryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\dto\\inventoryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\repo\\customerrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\repo\\customerrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\repo\\supplierrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +19,32 @@
       "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\models\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\dto\\supplierdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\interface\\isupplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\interface\\isupplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\repo\\categoryrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\repo\\categoryrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb||{25834150-CD7E-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb||{25834150-CD7E-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\models\\inventoryitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\models\\inventoryitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\dto\\inventoryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\dto\\inventoryitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\interface\\icustomercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\interface\\icustomercs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\repo\\inventoryitemsrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,10 +75,6 @@
       "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\dto\\categoryupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|c:\\users\\mehar\\source\\repos\\webshop\\imsweb\\imsweb\\repo\\categoryrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BED55ED5-EADA-455A-82C6-A8B04969AE98}|IMSWeb\\IMSWeb.csproj|solutionrelative:imsweb\\repo\\categoryrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\obj\\Debug\\net7.0\\IMSWeb.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:IMSWeb\\obj\\Debug\\net7.0\\IMSWeb.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -82,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 226,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,58 +118,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Supplier.cs",
-              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\Supplier.cs",
-              "RelativeDocumentMoniker": "IMSWeb\\Models\\Supplier.cs",
-              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\Supplier.cs",
-              "RelativeToolTip": "IMSWeb\\Models\\Supplier.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
+              "DocumentIndex": 0,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Controllers\\CustomerController.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "IMSWeb\\Controllers\\CustomerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T19:40:28.259Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ISupplier.cs",
-              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ISupplier.cs",
-              "RelativeDocumentMoniker": "IMSWeb\\Interface\\ISupplier.cs",
-              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ISupplier.cs",
-              "RelativeToolTip": "IMSWeb\\Interface\\ISupplier.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAA4AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T19:41:25.647Z",
+              "WhenOpened": "2024-04-18T11:02:17.901Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "InventoryItemDto.cs",
-              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\InventoryItemDto.cs",
-              "RelativeDocumentMoniker": "IMSWeb\\Dto\\InventoryItemDto.cs",
-              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\InventoryItemDto.cs",
-              "RelativeToolTip": "IMSWeb\\Dto\\InventoryItemDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAhAAAA",
+              "Title": "CustomerRepo.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\CustomerRepo.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Repo\\CustomerRepo.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\CustomerRepo.cs",
+              "RelativeToolTip": "IMSWeb\\Repo\\CustomerRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:25:49.472Z",
+              "WhenOpened": "2024-04-18T11:01:25.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "InvetoryItemController.cs",
-              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\InvetoryItemController.cs",
-              "RelativeDocumentMoniker": "IMSWeb\\Controllers\\InvetoryItemController.cs",
-              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\InvetoryItemController.cs",
-              "RelativeToolTip": "IMSWeb\\Controllers\\InvetoryItemController.cs",
-              "ViewState": "AQIAAEgAAAAAAAAAAAAWwFQAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:21:39.331Z"
+              "DocumentIndex": 8,
+              "Title": "IMSWeb.pdb",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb",
+              "RelativeDocumentMoniker": "IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb",
+              "RelativeToolTip": "IMSWeb\\bin\\Debug\\net7.0\\IMSWeb.pdb",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002276|",
+              "WhenOpened": "2024-04-18T09:12:23.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 7,
               "Title": "CategoryRepo.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\CategoryRepo.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Repo\\CategoryRepo.cs",
@@ -165,11 +163,12 @@
               "RelativeToolTip": "IMSWeb\\Repo\\CategoryRepo.cs",
               "ViewState": "AQIAACcAAAAAAAAAAAAYwK4AAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-17T08:02:09.648Z"
+              "WhenOpened": "2024-04-17T08:02:09.648Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "InventoryItemsRepo.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\InventoryItemsRepo.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Repo\\InventoryItemsRepo.cs",
@@ -182,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "InventoryItems.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\InventoryItems.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Models\\InventoryItems.cs",
@@ -195,7 +194,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "CategoryUpdateDto.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\CategoryUpdateDto.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Dto\\CategoryUpdateDto.cs",
@@ -207,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\Category.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Models\\Category.cs",
@@ -219,7 +218,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "ICategory.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ICategory.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Interface\\ICategory.cs",
@@ -232,46 +231,97 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "SupplierRepo.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\SupplierRepo.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Repo\\SupplierRepo.cs",
               "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Repo\\SupplierRepo.cs",
               "RelativeToolTip": "IMSWeb\\Repo\\SupplierRepo.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAcwCIAAAAzAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAADwvxMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T16:57:52.372Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "SupplierDTO.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\SupplierDTO.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Dto\\SupplierDTO.cs",
               "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\SupplierDTO.cs",
               "RelativeToolTip": "IMSWeb\\Dto\\SupplierDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T08:27:41.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
+              "Title": "ISupplier.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ISupplier.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Interface\\ISupplier.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ISupplier.cs",
+              "RelativeToolTip": "IMSWeb\\Interface\\ISupplier.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T19:41:25.647Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "SupplierController.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\SupplierController.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Controllers\\SupplierController.cs",
               "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\SupplierController.cs",
               "RelativeToolTip": "IMSWeb\\Controllers\\SupplierController.cs",
-              "ViewState": "AQIAADsAAAAAAAAAAAAswEIAAAAAAAAA",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABMAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-17T19:57:24.512Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
+              "Title": "Supplier.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\Supplier.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Models\\Supplier.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Models\\Supplier.cs",
+              "RelativeToolTip": "IMSWeb\\Models\\Supplier.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T19:40:28.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "InvetoryItemController.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\InvetoryItemController.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Controllers\\InvetoryItemController.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Controllers\\InvetoryItemController.cs",
+              "RelativeToolTip": "IMSWeb\\Controllers\\InvetoryItemController.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAWwFQAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T08:21:39.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "InventoryItemDto.cs",
+              "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\InventoryItemDto.cs",
+              "RelativeDocumentMoniker": "IMSWeb\\Dto\\InventoryItemDto.cs",
+              "ToolTip": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\InventoryItemDto.cs",
+              "RelativeToolTip": "IMSWeb\\Dto\\InventoryItemDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-17T08:25:49.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Program.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Program.cs",
@@ -284,7 +334,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "ICustomercs.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\ICustomercs.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Interface\\ICustomercs.cs",
@@ -297,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "IInventoryItem.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Interface\\IInventoryItem.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Interface\\IInventoryItem.cs",
@@ -310,7 +360,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "CategoryDto.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\Dto\\CategoryDto.cs",
               "RelativeDocumentMoniker": "IMSWeb\\Dto\\CategoryDto.cs",
@@ -322,7 +372,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "IMSWeb.AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Users\\mehar\\source\\repos\\WebShop\\IMSWeb\\IMSWeb\\obj\\Debug\\net7.0\\IMSWeb.AssemblyInfo.cs",
               "RelativeDocumentMoniker": "IMSWeb\\obj\\Debug\\net7.0\\IMSWeb.AssemblyInfo.cs",
