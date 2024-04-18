@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IInventoryItem, InventoryItemsRepo>();
 builder.Services.AddScoped<IOrder,OrderRepo>();
+builder.Services.AddScoped<ISupplier, SupplierRepo>();
 
 
 builder.Services.AddDbContext<IMSContext>(options =>
