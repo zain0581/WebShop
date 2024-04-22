@@ -10,6 +10,6 @@
 
 
         public CategoryDto? Category { get; set; }
-        public List<SupplierDTO>? Suppliers { get; set; }
+        public List<CreateSupplierDto>? Suppliers { get; set; }
     }
 }

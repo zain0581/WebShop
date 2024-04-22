@@ -70,7 +70,8 @@ namespace IMSWeb.Repo
                 var supplier = new Supplier
                 {
                     Name = supplierDto.Name,
-                    Phone = supplierDto.Phone
+                    Phone = supplierDto.Phone,
+                    Email = supplierDto.Email,  
                     // Map other Supplier properties as needed
                 };
                 suppliers.Add(supplier);
@@ -124,7 +125,7 @@ namespace IMSWeb.Repo
                     ImageUrl = i.Category.ImageUrl
                     // Map other category properties as needed
                 } : null, // Set CategoryDto to null if Category is null
-                Suppliers = i.Suppliers != null ? i.Suppliers.Select(s => new SupplierDTO
+                Suppliers = i.Suppliers != null ? i.Suppliers.Select(s => new CreateSupplierDto
                 {
                     Id = s.Id,
                     Name = s.Name,
@@ -166,7 +167,7 @@ namespace IMSWeb.Repo
                     ImageUrl = inventoryItem.Category.ImageUrl
                     // Map other category properties as needed
                 } : null, // Set CategoryDto to null if Category is null
-                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new SupplierDTO
+                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
                 {
                     Id = s.Id,
                     Name = s.Name,
@@ -208,7 +209,7 @@ namespace IMSWeb.Repo
                     ImageUrl = inventoryItem.Category.ImageUrl
                     // Map other category properties as needed
                 } : null, // Set CategoryDto to null if Category is null
-                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new SupplierDTO
+                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
                 {
                     Id = s.Id,
                     Name = s.Name,

@@ -1,4 +1,5 @@
-﻿using IMSWeb.Interface;
+﻿using IMSWeb.Dto;
+using IMSWeb.Interface;
 using IMSWeb.Models;
 using IMSWeb.Repo;
 using Microsoft.AspNetCore.Http;
@@ -26,9 +27,9 @@ namespace IMSWeb.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrder(Order order)
+        public async Task<IActionResult> CreateOrder(OrderDto orderDto)
         {
-            bool result = await OrderRepo.CreateOrder(order);
+            bool result = await OrderRepo.CreateOrder(orderDto);
             if (result)
             {
                 return Ok("Order created successfully");
@@ -37,7 +38,6 @@ namespace IMSWeb.Controllers
             {
                 return StatusCode(500, "Failed to create Order");
             }
-
         }
 
         [HttpDelete]
