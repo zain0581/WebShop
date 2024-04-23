@@ -3,6 +3,7 @@ using IMSWeb.Dto;
 using IMSWeb.Interface;
 using IMSWeb.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace IMSWeb.Repo
 {
@@ -61,12 +62,31 @@ namespace IMSWeb.Repo
             return await _context.Suppliers.FindAsync(id);
         }
 
-        public async Task<bool> CreateSupplier(Supplier supplier)
+        public async Task<bool> CreateSupplier(SupplierDTO supplierDto)
         {
-            _context.Suppliers.Add(supplier);
-            await _context.SaveChangesAsync();
-            return true;
+            try
+            {
+                var supplier = new Supplier
+                {
+                    Id = supplierDto.Id,
+                    Name = supplierDto.Name,
+                    Email = supplierDto.Email,
+                    Phone= supplierDto.Phone,
+
+                    //  to map the 
+                };
+
+                _context.Suppliers.Add(supplier);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                // Handle exception appropriately
+                return false;
+            }
         }
+
 
         public async Task<bool> UpdateSupplier(int id, Supplier supplier)
         {

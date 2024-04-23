@@ -15,6 +15,17 @@ builder.Services.AddScoped<IInventoryItem, InventoryItemsRepo>();
 builder.Services.AddScoped<IOrder,OrderRepo>();
 builder.Services.AddScoped<ISupplier, SupplierRepo>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("coffe",
+                          policy =>
+                          {
+                              policy.AllowAnyOrigin()
+                                                 
+                                                  .AllowAnyHeader()
+                                                  .AllowAnyMethod();
+                          });
+});
 
 builder.Services.AddDbContext<IMSContext>(options =>
 {
@@ -32,6 +43,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("coffe");
 
 app.UseHttpsRedirection();
 

@@ -1,4 +1,5 @@
-﻿using IMSWeb.Interface;
+﻿using IMSWeb.Dto;
+using IMSWeb.Interface;
 using IMSWeb.Models;
 using IMSWeb.Repo;
 using Microsoft.AspNetCore.Http;
@@ -43,7 +44,7 @@ namespace IMSWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Supplier>> CreateSupplier(Supplier supplier)
+        public async Task<ActionResult<Supplier>> CreateSupplier(SupplierDTO supplier)
         {
             await _supplierRepository.CreateSupplier(supplier);
             return CreatedAtAction(nameof(GetSupplierById), new { id = supplier.Id }, supplier);

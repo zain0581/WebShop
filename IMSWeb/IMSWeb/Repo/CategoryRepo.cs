@@ -20,6 +20,7 @@ namespace IMSWeb.Repo
             {
             var category = new Category
             {
+                Id=categoryDto.Id,
                 Name = categoryDto.Name,
                 Description = categoryDto.Description,
                 ImageUrl = categoryDto.ImageUrl,
@@ -53,6 +54,7 @@ namespace IMSWeb.Repo
         {
             return await _dbcontext.Categories.Select(x=> new CategoryDto
             {
+                Id = x.Id,
                 Name=x.Name,
                 Description=x.Description,
                 IsActive=x.IsActive,
