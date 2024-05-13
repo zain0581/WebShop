@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace IMSWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class addin : Migration
+    public partial class @new : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -58,28 +58,6 @@ namespace IMSWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InventoryItems",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsAvailable = table.Column<int>(type: "int", nullable: true),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CategoryId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_InventoryItems", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_InventoryItems_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -104,27 +82,31 @@ namespace IMSWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InventoryItemsSupplier",
+                name: "InventoryItems",
                 columns: table => new
                 {
-                    InventoryItemsId = table.Column<int>(type: "int", nullable: false),
-                    SuppliersId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsAvailable = table.Column<int>(type: "int", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    SuppliersId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InventoryItemsSupplier", x => new { x.InventoryItemsId, x.SuppliersId });
+                    table.PrimaryKey("PK_InventoryItems", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InventoryItemsSupplier_InventoryItems_InventoryItemsId",
-                        column: x => x.InventoryItemsId,
-                        principalTable: "InventoryItems",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_InventoryItems_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_InventoryItemsSupplier_Suppliers_SuppliersId",
+                        name: "FK_InventoryItems_Suppliers_SuppliersId",
                         column: x => x.SuppliersId,
                         principalTable: "Suppliers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -133,10 +115,9 @@ namespace IMSWeb.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<int>(type: "int", nullable: true),
-                    InventoryId = table.Column<int>(type: "int", nullable: true),
                     Quantity = table.Column<int>(type: "int", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: true),
+                    OrderId = table.Column<int>(type: "int", nullable: true),
                     InventoryItemId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -160,8 +141,8 @@ namespace IMSWeb.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InventoryItemsSupplier_SuppliersId",
-                table: "InventoryItemsSupplier",
+                name: "IX_InventoryItems_SuppliersId",
+                table: "InventoryItems",
                 column: "SuppliersId");
 
             migrationBuilder.CreateIndex(
@@ -184,13 +165,7 @@ namespace IMSWeb.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "InventoryItemsSupplier");
-
-            migrationBuilder.DropTable(
                 name: "OrderItems");
-
-            migrationBuilder.DropTable(
-                name: "Suppliers");
 
             migrationBuilder.DropTable(
                 name: "InventoryItems");
@@ -200,6 +175,9 @@ namespace IMSWeb.Migrations
 
             migrationBuilder.DropTable(
                 name: "Categories");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
 
             migrationBuilder.DropTable(
                 name: "Customers");

@@ -11,89 +11,57 @@ namespace IMSWeb.Repo
     {
         private IMSContext _context;
 
-        public InventoryItemsRepo(IMSContext context )
+        public InventoryItemsRepo(IMSContext context)
         {
             _context = context;
+
+            //var datalist = from p in _context.InventoryItems
+            //               on 
         }
 
-        public async Task<bool> CreateInventoryItem(InventoryItemDto inventoryItemDto)
+        //public async Task<InventoryItems> CreateInventoryItem(InventoryItems inventoryItem)
+        //{
+        //    _context.InventoryItems.Add(inventoryItem);
+        //    await _context.SaveChangesAsync();
+        //    return inventoryItem;
+        //}
+
+        public async Task<InventoryItems> CreateInventoryItem(InventoryItems item)
         {
-            // Map InventoryItemDto to InventoryItem
-            var inventoryItem = new InventoryItems
+            // Detach the category entity if it's being tracked
+            if (_context.Entry(item).State == EntityState.Detached)
             {
-                Name = inventoryItemDto.Name,
-                Description = inventoryItemDto.Description,
-                IsAvailable = inventoryItemDto.IsAvailable,
-                ImageUrl = inventoryItemDto.ImageUrl
-                // Map other properties as needed
-            };
-
-            // Add InventoryItem to context and save changes
-            _context.InventoryItems.Add(inventoryItem);
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-
-
-        public async Task<bool> CreateInventoryItemWithRelations(InventoryItemDto inventoryItemDto)
-        {
-            // Map InventoryItemDto to InventoryItem
-            var inventoryItem = new InventoryItems
-            {
-                Name = inventoryItemDto.Name,
-                Description = inventoryItemDto.Description,
-                IsAvailable = inventoryItemDto.IsAvailable,
-                ImageUrl = inventoryItemDto.ImageUrl
-                // Map other properties as needed
-            };
-
-            // Retrieve or create Category
-            var category = await _context.Categories.FirstOrDefaultAsync(c => c.Name == inventoryItemDto.Category.Name);
-            if (category == null)
-            {
-                category = new Category
-                {
-                    Name = inventoryItemDto.Category.Name,
-                    Description = inventoryItemDto.Category.Description,
-                    IsActive = inventoryItemDto.Category.IsActive,
-                    ImageUrl = inventoryItemDto.Category.ImageUrl
-                    // Map other Category properties as needed
-                };
-                _context.Categories.Add(category);
+                _context.Entry(item).State = EntityState.Modified; // Or EntityState.Added if it's a new entity
             }
 
-            // Create Supplier(s) and associate with InventoryItem
-            var suppliers = new List<Supplier>();
-            foreach (var supplierDto in inventoryItemDto.Suppliers)
-            {
-                var supplier = new Supplier
-                {
-                    Name = supplierDto.Name,
-                    Phone = supplierDto.Phone,
-                    Email = supplierDto.Email,  
-                    // Map other Supplier properties as needed
-                };
-                suppliers.Add(supplier);
-            }
 
-            // Associate Category and Supplier(s) with InventoryItem
-            inventoryItem.Category = category;
-            inventoryItem.Suppliers = suppliers;
-
-            // Add InventoryItem to context and save changes
-            _context.InventoryItems.Add(inventoryItem);
+            _context.InventoryItems.Add(item);
             await _context.SaveChangesAsync();
-
-            return true;
+            return item;
         }
+
+
+        public async Task<InventoryItems> CreateInventory(InventoryItems item)
+        {
+
+            _context.InventoryItems.Add(item);
+            await _context.SaveChangesAsync();
+            return item;
+        }
+
+
+
+
+
+
+
 
 
 
 
         public async Task<bool> DeleteInventoryItem(int id)
         {
-            var item = await _context.InventoryItems.Include(x=>x.Category).Include(g=>g.Suppliers).FirstOrDefaultAsync(c=>c.Id==id);
+            var item = await _context.InventoryItems.Include(x => x.Category).Include(g => g.Suppliers).FirstOrDefaultAsync(c => c.Id == id);
             if (item == null)
                 return false;
 
@@ -102,14 +70,14 @@ namespace IMSWeb.Repo
             return true;
         }
 
-        public async Task<List<InventoryItemDto>> GetAllInventoryItems()
+        public async Task<List<CreateInventoryItemRequest>> GetAllInventoryItems()
         {
             var inventoryItems = await _context.InventoryItems
                 .Include(i => i.Category)
                 .Include(i => i.Suppliers)
                 .ToListAsync();
 
-            var inventoryItemDTOs = inventoryItems.Select(i => new InventoryItemDto
+            var inventoryItemDTOs = inventoryItems.Select(i => new CreateInventoryItemRequest
             {
                 Id = i.Id,
                 Name = i.Name,
@@ -125,17 +93,20 @@ namespace IMSWeb.Repo
                     ImageUrl = i.Category.ImageUrl
                     // Map other category properties as needed
                 } : null, // Set CategoryDto to null if Category is null
-                Suppliers = i.Suppliers != null ? i.Suppliers.Select(s => new CreateSupplierDto
+                Suppliers = i.Suppliers != null ? new SupplierDTO
                 {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Phone = s.Phone
-                    // Map other supplier properties as needed
-                }).ToList() : null // Set Suppliers to null if it's null
+                    Id = i.Suppliers.Id,
+                    Email = i.Suppliers.Email,
+                    Name = i.Suppliers.Name,
+                    Phone = i.Suppliers.Phone,
+
+                    // map other supplier properties as needed
+                } : null // Set Suppliers to null if it's null
             }).ToList();
 
             return inventoryItemDTOs;
         }
+
 
 
         public async Task<InventoryItemDto> GetInventoryItemById(int id)
@@ -158,22 +129,22 @@ namespace IMSWeb.Repo
                 Description = inventoryItem.Description,
                 IsAvailable = inventoryItem.IsAvailable,
                 ImageUrl = inventoryItem.ImageUrl,
-                Category = inventoryItem.Category != null ? new CategoryDto
-                {
-                    Id = inventoryItem.Category.Id,
-                    Name = inventoryItem.Category.Name,
-                    Description = inventoryItem.Category.Description,
-                    IsActive = inventoryItem.Category.IsActive,
-                    ImageUrl = inventoryItem.Category.ImageUrl
-                    // Map other category properties as needed
-                } : null, // Set CategoryDto to null if Category is null
-                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Phone = s.Phone
-                    // Map other supplier properties as needed
-                }).ToList() : null // Set Suppliers to null if it's null
+                //Category = inventoryItem.Category != null ? new CategoryDto
+                //{
+                //    Id = inventoryItem.Category.Id,
+                //    Name = inventoryItem.Category.Name,
+                //    Description = inventoryItem.Category.Description,
+                //    IsActive = inventoryItem.Category.IsActive,
+                //    ImageUrl = inventoryItem.Category.ImageUrl
+                //    // Map other category properties as needed
+                //} : null, // Set CategoryDto to null if Category is null
+                //Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
+                //{
+                //    Id = s.Id,
+                //    Name = s.Name,
+                //    Phone = s.Phone
+                //    // Map other supplier properties as needed
+                //}).ToList() : null // Set Suppliers to null if it's null
             };
 
             return inventoryItemDto;
@@ -200,30 +171,31 @@ namespace IMSWeb.Repo
                 Description = inventoryItem.Description,
                 IsAvailable = inventoryItem.IsAvailable,
                 ImageUrl = inventoryItem.ImageUrl,
-                Category = inventoryItem.Category != null ? new CategoryDto
-                {
-                    Id = inventoryItem.Category.Id,
-                    Name = inventoryItem.Category.Name,
-                    Description = inventoryItem.Category.Description,
-                    IsActive = inventoryItem.Category.IsActive,
-                    ImageUrl = inventoryItem.Category.ImageUrl
-                    // Map other category properties as needed
-                } : null, // Set CategoryDto to null if Category is null
-                Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
-                {
-                    Id = s.Id,
-                    Name = s.Name,
-                    Phone = s.Phone
-                    // Map other supplier properties as needed
-                }).ToList() : null // Set Suppliers to null if it's null
+                //Category = inventoryItem.Category != null ? new CategoryDto
+                //{
+                //    Id = inventoryItem.Category.Id,
+                //    Name = inventoryItem.Category.Name,
+                //    Description = inventoryItem.Category.Description,
+                //    IsActive = inventoryItem.Category.IsActive,
+                //    ImageUrl = inventoryItem.Category.ImageUrl
+                //    // Map other category properties as needed
+                //} : null, // Set CategoryDto to null if Category is null
+                //Suppliers = inventoryItem.Suppliers != null ? inventoryItem.Suppliers.Select(s => new CreateSupplierDto
+                //{
+                //    Id = s.Id,
+                //    Name = s.Name,
+                //    Phone = s.Phone
+                //    // Map other supplier properties as needed
+                //}).ToList() : null // Set Suppliers to null if it's null
             };
 
             return inventoryItemDto;
         }
 
 
-        public async Task<bool> UpdateInventoryItemWithRelations(int id, InventoryItemDto inventoryItemDto)
+        public async Task<bool> UpdateInventoryItemWithRelations(int id, CreateInventoryItemRequest inventoryItemDto)
         {
+            // Retrieve the inventory item from the database including its related category and supplier
             var inventoryItem = await _context.InventoryItems
                 .Include(i => i.Category)
                 .Include(i => i.Suppliers)
@@ -231,44 +203,50 @@ namespace IMSWeb.Repo
 
             if (inventoryItem == null)
             {
-                return false;
+                return false; // If the inventory item with the specified id doesn't exist, return false
             }
 
-            // Update inventory item properties
+            // Update the properties of the retrieved inventory item with the values from the DTO
             inventoryItem.Name = inventoryItemDto.Name;
             inventoryItem.Description = inventoryItemDto.Description;
-            inventoryItem.ImageUrl = inventoryItemDto.ImageUrl;
             inventoryItem.IsAvailable = inventoryItemDto.IsAvailable;
+            inventoryItem.ImageUrl = inventoryItemDto.ImageUrl;
+           
 
-            // Update category if provided
+            // Check if the category and supplier in the DTO are provided and update if necessary
             if (inventoryItemDto.Category != null)
             {
-                inventoryItem.Category ??= new Category();
-                inventoryItem.Category.Name = inventoryItemDto.Category.Name;
-                inventoryItem.Category.Description = inventoryItemDto.Category.Description;
-                inventoryItem.Category.IsActive = inventoryItemDto.Category.IsActive;
-                inventoryItem.Category.ImageUrl = inventoryItemDto.Category.ImageUrl;
+                // If the category is provided, update the inventory item's category
+                inventoryItem.Category = new Category
+                {
+                    Id = inventoryItemDto.Category.Id,
+                    Name = inventoryItemDto.Category.Name,
+                    Description = inventoryItemDto.Category.Description,
+                    ImageUrl = inventoryItemDto.Category.ImageUrl,
+                    IsActive= inventoryItemDto.Category.IsActive,
+                    // If isActive is a property of Category, update it accordingly
+                    // isActive = inventoryItemDto.Category.isActive
+                };
             }
 
-            // Update suppliers if provided
             if (inventoryItemDto.Suppliers != null)
             {
-                inventoryItem.Suppliers ??= new List<Supplier>();
-                inventoryItem.Suppliers.Clear(); // Remove existing suppliers
-
-                foreach (var supplierDto in inventoryItemDto.Suppliers)
+                // If the supplier is provided, update the inventory item's supplier
+                inventoryItem.Suppliers = new Supplier
                 {
-                    var supplier = await _context.Suppliers.FindAsync(supplierDto.Id);
-                    if (supplier != null)
-                    {
-                        inventoryItem.Suppliers.Add(supplier);
-                    }
-                }
+                    Id = inventoryItemDto.Suppliers.Id,
+                    Name = inventoryItemDto.Suppliers.Name,
+                    Email = inventoryItemDto.Suppliers.Email,
+                    Phone = inventoryItemDto.Suppliers.Phone
+                };
             }
 
+            // Save the changes to the database
             await _context.SaveChangesAsync();
-            return true;
+
+            return true; // Return true indicating successful update
         }
+
 
     }
 }

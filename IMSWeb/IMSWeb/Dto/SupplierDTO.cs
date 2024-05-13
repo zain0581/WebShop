@@ -10,7 +10,7 @@ namespace IMSWeb.Dto
         public string? Email { get; set; }
         public string Phone { get; set; }
 
-        [JsonIgnore]
-        public List<InventoryItemDto>? InventoryItems { get; set; }
+        //[JsonIgnore]
+        //public List<InventoryItemDto>? InventoryItems { get; set; }
     }
 }

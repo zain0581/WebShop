@@ -7,9 +7,12 @@
         public string? Description { get; set; }
         public int? IsAvailable { get; set; }
         public string? ImageUrl { get; set; }
+        //public int SupplierId { get; set; }
+
+        //public int? CategoryId { get; set; }
 
 
-        public CategoryDto? Category { get; set; }
-        public List<CreateSupplierDto>? Suppliers { get; set; }
+        public CategoryDto? category { get; set; }
+        //public CreateSupplierDto? supplier { get; set; }
     }
 }

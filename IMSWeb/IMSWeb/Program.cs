@@ -3,6 +3,7 @@ using IMSWeb.Interface;
 using IMSWeb.Repo;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,10 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 builder.Services.AddScoped<ICategory, CategoryRepo>();
 builder.Services.AddScoped<IInventoryItem, InventoryItemsRepo>();
 builder.Services.AddScoped<IOrder,OrderRepo>();
 builder.Services.AddScoped<ISupplier, SupplierRepo>();
+builder.Services.AddScoped<ICustomercs,CustomerRepo>();
+builder.Services.AddScoped<IOrderItem, OrderItemRepo>();    
 
 builder.Services.AddCors(options =>
 {
@@ -26,6 +32,8 @@ builder.Services.AddCors(options =>
                                                   .AllowAnyMethod();
                           });
 });
+
+
 
 builder.Services.AddDbContext<IMSContext>(options =>
 {

@@ -31,31 +31,31 @@ namespace IMSWeb.Repo
             return supplierDTOs;
         }
 
-        public async Task<List<SupplierDTO>> GetAllSuppliers()
-        {
-            var suppliers = await _context.Suppliers.Include(s => s.InventoryItems).ToListAsync();
+        //public async Task<List<SupplierDTO>> GetAllSuppliers()
+        //{
+        //    var suppliers = await _context.Suppliers.Include(s => s.InventoryItems).ToListAsync();
 
-            // Map suppliers to DTOs
-            var supplierDTOs = suppliers.Select(supplier => new SupplierDTO
-            {
-                Id = supplier.Id,
-                Name = supplier.Name,
-                //Email = supplier.Email,
-                Phone = supplier.Phone,
-                InventoryItems = supplier.InventoryItems?.Select(item => new InventoryItemDto
-                {
-                    Id = item.Id,
-                    Name = supplier.Name,
-                    Description = item.Description,
-                    ImageUrl = item.ImageUrl,
-                    IsAvailable = item.IsAvailable,
+        //    // Map suppliers to DTOs
+        //    var supplierDTOs = suppliers.Select(supplier => new SupplierDTO
+        //    {
+        //        Id = supplier.Id,
+        //        Name = supplier.Name,
+        //        //Email = supplier.Email,
+        //        Phone = supplier.Phone,
+        //        InventoryItems = supplier.InventoryItems?.Select(item => new InventoryItemDto
+        //        {
+        //            Id = item.Id,
+        //            Name = supplier.Name,
+        //            Description = item.Description,
+        //            ImageUrl = item.ImageUrl,
+        //            IsAvailable = item.IsAvailable,
         
-        // Map inventory item properties as needed
-                }).ToList()
-            }).ToList();
+        //// Map inventory item properties as needed
+        //        }).ToList()
+        //    }).ToList();
 
-            return supplierDTOs;
-        }
+        //    return supplierDTOs;
+        //}
 
         public async Task<Supplier> GetSupplierById(int id)
         {
@@ -88,7 +88,7 @@ namespace IMSWeb.Repo
         }
 
 
-        public async Task<bool> UpdateSupplier(int id, Supplier supplier)
+        public async Task<bool> UpdateSupplier(int id, SupplierDTO supplier)
         {
             var existingSupplier = await _context.Suppliers.FindAsync(id);
             if (existingSupplier == null)
@@ -97,14 +97,13 @@ namespace IMSWeb.Repo
             existingSupplier.Name = supplier.Name;
             existingSupplier.Email = supplier.Email;
             existingSupplier.Phone = supplier.Phone;
-
             await _context.SaveChangesAsync();
             return true;
         }
 
         public async Task<bool> DeleteSupplier(int id)
         {
-            var supplier = await _context.Suppliers.FindAsync(id);
+            var supplier = await _context.Suppliers.Include(x=>x.InventoryItems).FirstOrDefaultAsync(c=>c.Id==id);
             if (supplier == null)
                 return false;
 

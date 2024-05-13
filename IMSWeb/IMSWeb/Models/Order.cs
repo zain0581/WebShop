@@ -1,4 +1,6 @@
-﻿namespace IMSWeb.Models
+﻿using System.Text.Json.Serialization;
+
+namespace IMSWeb.Models
 {
     public class Order
     {
@@ -15,6 +17,7 @@
         public string? Description { get; set; }
 
         // one order can have many orderitems
+        [JsonIgnore]
         public List<OrderItem>? OrderItems { get; set; }
 
         // Navigation property for Customer

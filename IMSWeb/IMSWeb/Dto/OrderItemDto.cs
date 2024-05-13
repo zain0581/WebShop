@@ -1,9 +1,16 @@
-﻿namespace IMSWeb.Dto
+﻿using IMSWeb.Models;
+
+namespace IMSWeb.Dto
 {
     public class OrderItemDto
     {
-        public string ProductName { get; set; }
-        public int Quantity { get; set; }
-        public float Price { get; set; }
+        public int Id { get; set; }
+
+        public int? Quantity { get; set; }
+        public int? Price { get; set; }
+
+        //navigation prperties 
+        //public Order? Order { get; set; }
+        //public InventoryItems? InventoryItem { get; set; }
     }
 }

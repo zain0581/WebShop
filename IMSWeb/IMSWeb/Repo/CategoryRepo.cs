@@ -25,13 +25,7 @@ namespace IMSWeb.Repo
                 Description = categoryDto.Description,
                 ImageUrl = categoryDto.ImageUrl,
                 IsActive = categoryDto.IsActive,
-                //InventoryItems = categoryDto.InventoryItems.Select(item => new InventoryItems
-                //{
-                //    Name = item.Name,
-                //    Description = item.Description,
-                //    IsAvailable = item.IsAvailable,
-                //    ImageUrl = item.ImageUrl
-                //}).ToList()
+
             };
 
             _dbcontext.Categories.Add(category);
@@ -41,14 +35,22 @@ namespace IMSWeb.Repo
 
         public async Task<bool> DeleteCategory(int id)
         {
-            var categoryToDelete = await _dbcontext.Categories.Include(x=>x.InventoryItems).FirstOrDefaultAsync(y=>y.Id==id);
+            var categoryToDelete = await _dbcontext.Categories.Include(f => f.InventoryItems).FirstOrDefaultAsync(y => y.Id == id);
             if (categoryToDelete == null)
                 return false;
 
+            // Delete associated InventoryItems
+            _dbcontext.InventoryItems.RemoveRange(categoryToDelete.InventoryItems);
+
+            // Remove the category itself
             _dbcontext.Categories.Remove(categoryToDelete);
+
             await _dbcontext.SaveChangesAsync();
+
+            // Return true to indicate successful deletion
             return true;
         }
+
 
         public async Task<List<CategoryDto>> GetAllCategories()
         {
@@ -161,7 +163,7 @@ namespace IMSWeb.Repo
         }
 
 
-        public async Task<bool> UpdateCategory(CategoryUpdateDto categoryDto)
+        public async Task<bool> UpdateCategory(CategoryDto categoryDto)
         {
             try
             {

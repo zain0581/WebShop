@@ -25,12 +25,12 @@ namespace IMSWeb.Controllers
             return Ok(suppliers);
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Supplier>>> GetAllSuppliers()
-        {
-            var suppliers = await _supplierRepository.GetAllSuppliers();
-            return Ok(suppliers);
-        }
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<Supplier>>> GetAllSuppliers()
+        //{
+        //    var suppliers = await _supplierRepository.GetAllSuppliers();
+        //    return Ok(suppliers);
+        //}
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Supplier>> GetSupplierById(int id)
@@ -51,14 +51,14 @@ namespace IMSWeb.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSupplier(int id, Supplier supplier)
+        public async Task<IActionResult> UpdateSupplier(int id, SupplierDTO supplier)
         {
             var result = await _supplierRepository.UpdateSupplier(id, supplier);
             if (!result)
             {
                 return NotFound();
             }
-            return NoContent();
+            return Ok("Supplier Updated successfully");
         }
 
         [HttpDelete("{id}")]
@@ -69,7 +69,7 @@ namespace IMSWeb.Controllers
             {
                 return NotFound();
             }
-            return NoContent();
+            return Ok("Supplier deleted successfully");
         }
     }
 }

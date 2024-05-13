@@ -100,7 +100,7 @@ namespace IMSWeb.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryUpdateDto categoryDto)
+        public async Task<IActionResult> UpdateCategory(int id, [FromBody] CategoryDto categoryDto)
         {
             if (id != categoryDto.Id)
             {

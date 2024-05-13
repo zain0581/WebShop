@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IMSWeb.Migrations
 {
     [DbContext(typeof(IMSContext))]
-    [Migration("20240416103808_addin")]
-    partial class addin
+    [Migration("20240502150734_new")]
+    partial class @new
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -100,9 +100,14 @@ namespace IMSWeb.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("SuppliersId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("SuppliersId");
 
                     b.ToTable("InventoryItems");
                 });
@@ -152,9 +157,6 @@ namespace IMSWeb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("InventoryId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("InventoryItemId")
                         .HasColumnType("int");
 
@@ -199,28 +201,19 @@ namespace IMSWeb.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("InventoryItemsSupplier", b =>
-                {
-                    b.Property<int>("InventoryItemsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SuppliersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("InventoryItemsId", "SuppliersId");
-
-                    b.HasIndex("SuppliersId");
-
-                    b.ToTable("InventoryItemsSupplier");
-                });
-
             modelBuilder.Entity("IMSWeb.Models.InventoryItems", b =>
                 {
                     b.HasOne("IMSWeb.Models.Category", "Category")
                         .WithMany("InventoryItems")
                         .HasForeignKey("CategoryId");
 
+                    b.HasOne("IMSWeb.Models.Supplier", "Suppliers")
+                        .WithMany("InventoryItems")
+                        .HasForeignKey("SuppliersId");
+
                     b.Navigation("Category");
+
+                    b.Navigation("Suppliers");
                 });
 
             modelBuilder.Entity("IMSWeb.Models.Order", b =>
@@ -247,21 +240,6 @@ namespace IMSWeb.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("InventoryItemsSupplier", b =>
-                {
-                    b.HasOne("IMSWeb.Models.InventoryItems", null)
-                        .WithMany()
-                        .HasForeignKey("InventoryItemsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("IMSWeb.Models.Supplier", null)
-                        .WithMany()
-                        .HasForeignKey("SuppliersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("IMSWeb.Models.Category", b =>
                 {
                     b.Navigation("InventoryItems");
@@ -280,6 +258,11 @@ namespace IMSWeb.Migrations
             modelBuilder.Entity("IMSWeb.Models.Order", b =>
                 {
                     b.Navigation("OrderItems");
+                });
+
+            modelBuilder.Entity("IMSWeb.Models.Supplier", b =>
+                {
+                    b.Navigation("InventoryItems");
                 });
 #pragma warning restore 612, 618
         }

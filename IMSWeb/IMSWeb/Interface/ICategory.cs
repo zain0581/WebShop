@@ -15,7 +15,7 @@ namespace IMSWeb.Interface
         public  Task<bool> CreateCategory(CategoryDto categoryDto);
         
         
-        public Task<bool> UpdateCategory(CategoryUpdateDto categoryDto);
+        public Task<bool> UpdateCategory(CategoryDto categoryDto);
         public Task<bool> DeleteCategory(int id);
     }
 }

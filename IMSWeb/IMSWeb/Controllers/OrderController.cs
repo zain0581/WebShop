@@ -13,8 +13,12 @@ namespace IMSWeb.Controllers
     public class OrderController : ControllerBase
     {
         public IOrder OrderRepo { get; set; }
-        public OrderController(IOrder orderRepo) 
+        //public ICustomercs CustomerRepo { get; set; }
+        //public IOrderItem OrderItemRepo { get; set; }
+        public OrderController(IOrder orderRepo, ICustomercs customerRepo, IOrderItem orderItemRepo) 
         {
+            //CustomerRepo = customerRepo;
+            //OrderItemRepo = orderItemRepo;
             OrderRepo = orderRepo;
         }
 
@@ -26,7 +30,42 @@ namespace IMSWeb.Controllers
         }
 
 
-        [HttpPost]
+        //[HttpPost("new")]
+        //public async Task<IActionResult> CreateOrder(OrderDto orderdto)
+        //{
+        //    Customer customer = new Customer
+        //    {
+        //        Name = orderdto.Customer.Name,
+        //        Email = orderdto.Customer.Email,
+        //        Phone = orderdto.Customer.Phone
+        //    };
+        //    await CustomerRepo.CreateCustomer(customer);
+
+        //    Order order = new Order
+        //    {
+        //        OrderNo = orderdto.OrderNo,
+        //        OrderDate = orderdto.OrderDate,
+        //        GrossPrice = orderdto.GrossPrice,
+        //        TotalPrice = orderdto.TotalPrice,
+        //        Tax = orderdto.Tax
+
+        //    };
+        //    await OrderRepo.CreateOrder(order);
+
+
+
+        //    return Ok(orderdto);
+
+        //}
+
+
+        //[HttpPost]
+        //public async Task<IActionResult> cretorderandcustomer()
+        //{
+
+        //}
+
+            [HttpPost]
         public async Task<IActionResult> CreateOrder(OrderDto orderDto)
         {
             bool result = await OrderRepo.CreateOrder(orderDto);

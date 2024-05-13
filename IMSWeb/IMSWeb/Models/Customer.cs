@@ -1,4 +1,6 @@
-﻿namespace IMSWeb.Models
+﻿using System.Text.Json.Serialization;
+
+namespace IMSWeb.Models
 {
     public class Customer
     {
@@ -8,6 +10,7 @@
         public string? Phone { get; set; }
 
         //one customer can have many orders
+    
         public List<Order>? Orders { get; set; }
     }
 }
