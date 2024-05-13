@@ -91,7 +91,7 @@ namespace IMSWeb.Repo
                     Description = i.Category.Description,
                     IsActive = i.Category.IsActive,
                     ImageUrl = i.Category.ImageUrl
-                    // Map other category properties as needed
+                    
                 } : null, // Set CategoryDto to null if Category is null
                 Suppliers = i.Suppliers != null ? new SupplierDTO
                 {
@@ -100,7 +100,8 @@ namespace IMSWeb.Repo
                     Name = i.Suppliers.Name,
                     Phone = i.Suppliers.Phone,
 
-                    // map other supplier properties as needed
+                    
+
                 } : null // Set Suppliers to null if it's null
             }).ToList();
 

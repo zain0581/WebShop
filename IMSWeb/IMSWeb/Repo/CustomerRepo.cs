@@ -57,11 +57,20 @@ namespace IMSWeb.Repo
             return await _context.Customers.FindAsync(id);
         }
 
-        public async Task<bool> UpdateCustomer(Customer customer)
+        public async Task<bool> UpdateCustomer(Customer customerDto)
         {
-            _context.Entry(customer).State = EntityState.Modified;
+            var existingCustomer = await _context.Customers.FindAsync(customerDto.Id);
+            if (existingCustomer == null)
+                return false; // Customer not found
+
+            // Update customer properties
+            existingCustomer.Name = customerDto.Name;
+            existingCustomer.Email = customerDto.Email;
+            existingCustomer.Phone = customerDto.Phone;
+
             await _context.SaveChangesAsync();
             return true;
         }
+
     }
 }

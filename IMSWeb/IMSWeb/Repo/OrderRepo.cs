@@ -117,9 +117,37 @@ namespace IMSWeb.Repo
            return await _context.Orders. Include(m=>m.Customer).FirstOrDefaultAsync(x=>x.Id==id);
         }
 
-        public Task<bool> UpdateOrder(Order order)
+        public async Task<bool> UpdateOrder(Order order)
         {
-            throw new NotImplementedException();
+            try
+            {
+                // Retrieve the existing order from the database
+                var existingOrder = await _context.Orders.FindAsync(order.Id);
+                if (existingOrder == null)
+                {
+                    // If the order doesn't exist, return false
+                    return false;
+                }
+
+                // Update the properties of the existing order with the values from the updated order
+                existingOrder.OrderNo = order.OrderNo;
+                existingOrder.OrderDate = order.OrderDate;
+                existingOrder.GrossPrice = order.GrossPrice;
+                existingOrder.Tax = order.Tax;
+                existingOrder.TotalPrice = order.TotalPrice;
+                existingOrder.Description = order.Description;
+                // Update other properties as needed
+
+                // Save the changes
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                // Handle exceptions appropriately
+                return false;
+            }
         }
+
     }
 }

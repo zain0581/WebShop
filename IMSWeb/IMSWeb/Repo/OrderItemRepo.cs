@@ -68,10 +68,25 @@ namespace IMSWeb.Repo
 
         public async Task<bool> UpdateOrderItem(OrderItem orderItem)
         {
-            _context.Entry(orderItem).State = EntityState.Modified;
+            
+            var existingItem = await _context.OrderItems.FindAsync(orderItem.Id);
+            if (existingItem == null)
+            {
+                // If the entity doesn't exist, return false
+                return false;
+            }
+
+            // Update the properties of the existing entity with the values from the updated entity
+            existingItem.Price = orderItem.Price;
+    
+            existingItem.Quantity = orderItem.Quantity;
+            
+
+            
             await _context.SaveChangesAsync();
             return true;
         }
+
 
         public async Task<bool> DeleteOrderItem(int id)
         {
