@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="mb-4">Suppliers List</h1>
+    <button  [routerLink]="['/addsupplier']" type="button"  class="btn btn-success">Add Supplier</button>
+  </div>
+
+  <div *ngIf="categories$ | async as suppliers; else loading">
+    <div class="list-group">
+      <ng-container *ngFor="let supplier of suppliers">
+        <div class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h4 class="mb-1">{{ supplier.name }}</h4>
+            <small>{{ supplier.id }}</small>
+          </div>
+          <p class="mb-1">Email: {{ supplier.email }}</p>
+          <p class="mb-1">Phone: {{ supplier.phone }}</p>
+          <div>
+            <!-- <button  [routerLink]="['/editsupplier', supplier.id]" type="button" class="btn btn-primary btn-sm me-2">Edit</button> -->
+            <a [routerLink]="['/editsupplier', supplier.id]" class="btn btn-primary mr-2">Edit</a>
+            <button  (click)="onDelete(supplier.id)" type="button"  class="btn btn-danger btn-sm ml-3">Delete</button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
+</div>

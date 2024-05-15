@@ -1,0 +1,26 @@
+<div *ngIf="inventory$ | async as inventoryItems">
+  <h2>Inventory Items</h2>
+
+  <div class="inventory-items-container">
+    <div *ngFor="let item of inventoryItems" class="inventory-item">
+      <div class="item-image">
+        <img [src]="'assets/img/product-img/pro-big-2.jpg'" alt="{{ item.name }}" class="item-img">
+      </div>
+      <div class="item-details">
+        <h3>{{ item.name }}</h3>
+        <p><strong>Description:</strong> {{ item.description }}</p>
+        <p><strong>Availability:</strong> {{ item.isAvailable ? 'Yes' : 'No' }}</p>
+        <p><strong>Category:</strong> {{ item.category?.name }}</p>
+        <p><strong>Supplier:</strong> {{ item.suppliers?.name }}</p>
+        <div class="action-buttons">
+          <button [routerLink]="['/editsupplier', item.id]" class="edit-button" >Edit</button>
+          <button class="delete-button" (click)="onDelete(item.id)" >Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!(inventory$ | async)">
+  <p>Loading...</p>
+</div>

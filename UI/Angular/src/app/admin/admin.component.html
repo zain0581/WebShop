@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <!-- Add Category Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/addcategory']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Add Category</h5>
+            <p class="card-text">Click here to add a new category</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Add Food Item Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/addinventoryitem']"  class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Add Inventory Item</h5>
+            <p class="card-text">Click here to add a new food item</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Add Supplier Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/addsupplier']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Add Supplier</h5>
+            <p class="card-text">Click here to add a new supplier</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit/View Cards -->
+  <div class="row mt-4">
+    <!-- Edit/View Category Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/category']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Edit/View Categories</h5>
+            <p class="card-text">Click here to edit or view existing categories</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Edit/View Food Item Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/invlist']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Edit/View Inventory Items</h5>
+            <p class="card-text">Click here to edit or view existing food items</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Edit/View Supplier Card -->
+    <div class="col-md-4 mt-md-4">
+      <div class="card border-0 bg-light">
+        <a [routerLink]="['/supplierlist']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-2">Edit/View Suppliers</h5>
+            <p class="card-text">Click here to edit or view existing suppliers</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

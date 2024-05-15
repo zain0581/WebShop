@@ -1,0 +1,77 @@
+<div class="container-fluid">
+  <!-- Header Section -->
+  <div class="row">
+    <div class="col-md-6 mt-3">
+      <div class="card border-0">
+        <a [routerLink]="['/addcategory']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-0">Categories</h5>
+            <p class="card-text">Add Category</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-6 mt-3">
+      <div class="card border-0">
+        <a [routerLink]="['/addinventoryitem']" class="card-link">
+          <div class="card-body">
+            <h5 class="card-title mb-0">Inventory Items</h5>
+            <p class="card-text">Add Ivntory Item</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- End Header Section -->
+
+  <!-- Add Category Section -->
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <div class="checkout_details_area mt-2">
+        <div class="cart-title">
+          <h2>Add Category</h2>
+        </div>
+
+        <!-- Category Form -->
+        <form [formGroup]="categoryform" (ngSubmit)="onItemSave()">
+          <div class="row">
+            
+            <!-- Category Name Field -->
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" formControlName="name" placeholder="Category Name" required>
+              <small *ngIf="categoryform.get('name')?.invalid && (categoryform.get('name')?.dirty || categoryform.get('name')?.touched)" class="text-danger">Category Name is required</small>
+            </div>
+
+            <!-- Category Description Field -->
+            <div class="col-md-6 mb-3">
+              <input type="text" class="form-control" formControlName="description" placeholder="Category Description">
+            </div>
+
+         <!-- Image URL Field -->
+ <div class="col-md-6 mb-3">
+  <input type="text" class="form-control" formControlName="imageUrl" placeholder="Image URL" required>
+  <small *ngIf="categoryform.get('imageUrl')?.invalid && (categoryform.get('imageUrl')?.dirty || categoryform.get('imageUrl')?.touched)" class="text-danger">Image URL is required</small>
+</div>
+
+            <!-- Is Active Field -->
+            <div class="col-md-6 mb-3">
+              <input type="number" class="form-control" formControlName="isActive" placeholder="Is Active">
+
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-md-6 mb-3">
+              <div class="cart-btn mt-3">
+                <button type="submit" class="btn amado-btn" [disabled]="categoryform.invalid">Add Category</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- End Category Form -->
+      </div>
+    </div>
+  </div>
+  <!-- End Add Category Section -->
+</div>

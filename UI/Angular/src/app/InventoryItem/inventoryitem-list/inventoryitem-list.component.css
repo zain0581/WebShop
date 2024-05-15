@@ -1,0 +1,54 @@
+.inventory-items-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inventory-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  max-width: 300px;
+}
+
+.item-image {
+  flex: 0 0 auto;
+}
+
+.item-img {
+  max-width: 100px;
+}
+
+.item-details {
+  flex: 1;
+  padding-left: 10px;
+}
+
+.item-details h3 {
+  margin-top: 0;
+}
+
+.action-buttons {
+  margin-top: 10px;
+}
+
+.edit-button, .delete-button {
+  padding: 5px 10px;
+  margin-right: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgrey;
+  /* margin-left: 5px; */
+}
+
+.edit-button {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}

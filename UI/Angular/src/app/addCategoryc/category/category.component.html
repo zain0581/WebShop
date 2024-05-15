@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="mt-4">Category List</h1>
+  <div class="d-flex justify-content-end mt-3">
+    <a [routerLink]="['/addcategory']" routerLinkActive="router-link-active" class="btn btn-primary">Add Category</a>
+  </div>
+
+  <ng-container *ngIf="categories$ | async as categories">
+    <div class="row mt-4">
+      <div class="col-lg-4 mb-4" *ngFor="let category of categories">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h5 class="card-title">{{ category.name }}</h5>
+            <p class="card-text">ID: {{ category.id }}</p>
+            <p class="card-text">Description: {{ category.description }}</p>
+            <p class="card-text">Image URL: {{ category.imageUrl }}</p>
+            <p class="card-text">Active: {{ category.isActive ? 'Available' : 'Not Available' }}</p>
+            <div class="btn-group" role="group" aria-label="Category Actions">
+              <a [routerLink]="['/editcategory', category.id]" class="btn btn-primary mr-2">Edit</a>
+              <button (click)="onDelete(category.id)" class="btn btn-danger">Delete</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
