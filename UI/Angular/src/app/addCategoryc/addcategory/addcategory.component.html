@@ -36,7 +36,7 @@
         <!-- Category Form -->
         <form [formGroup]="categoryform" (ngSubmit)="onItemSave()">
           <div class="row">
-            
+
             <!-- Category Name Field -->
             <div class="col-md-6 mb-3">
               <input type="text" class="form-control" formControlName="name" placeholder="Category Name" required>
@@ -64,6 +64,8 @@
             <div class="col-md-6 mb-3">
               <div class="cart-btn mt-3">
                 <button type="submit" class="btn amado-btn" [disabled]="categoryform.invalid">Add Category</button>
+                <button type="submit" class="btn amado-btn ml-5" (click)="onCancel()"> Cancel</button>
+
               </div>
             </div>
           </div>

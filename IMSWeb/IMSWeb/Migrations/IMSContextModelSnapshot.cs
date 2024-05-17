@@ -90,14 +90,17 @@ namespace IMSWeb.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("IsAvailable")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Qty")
+                        .HasColumnType("int");
+
                     b.Property<int?>("SuppliersId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UnitPrice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

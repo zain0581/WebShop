@@ -23,9 +23,9 @@ namespace unittest.RepoTest
             _dbContext = new IMSContext(options);
 
             _dbContext.InventoryItems.AddRange(
-                new InventoryItems { Id = 1, Name = "Item 1", Description = "Description 1", IsAvailable = 1, ImageUrl = "image1.jpg" },
-                new InventoryItems { Id = 2, Name = "Item 2", Description = "Description 2", IsAvailable = 1, ImageUrl = "image2.jpg" },
-                new InventoryItems { Id = 3, Name = "Item 3", Description = "Description 3", IsAvailable = 1, ImageUrl = "image3.jpg" }
+                new InventoryItems { Id = 1, Name = "Item 1", Description = "Description 1", Qty = 1, ImageUrl = "image1.jpg" },
+                new InventoryItems { Id = 2, Name = "Item 2", Description = "Description 2", Qty = 1, ImageUrl = "image2.jpg" },
+                new InventoryItems { Id = 3, Name = "Item 3", Description = "Description 3", Qty = 1, ImageUrl = "image3.jpg" }
             );
 
             _dbContext.SaveChanges();
@@ -46,7 +46,7 @@ namespace unittest.RepoTest
                 Id = 8,
                 Name = "New Item",
                 Description = "New Description",
-                IsAvailable = 0,
+                Qty = 2,
                 ImageUrl = "newimage.jpg",
                 Category = new Category { Id = categoryId }, // Set category using navigation property
                 Suppliers = new Supplier { Id = supplierId } // Set supplier using navigation property
@@ -130,7 +130,7 @@ namespace unittest.RepoTest
                 Id=2,
                 Name = "Updated Item",
                 Description = "Updated Description",
-                IsAvailable = 1,
+                Qty = 1,
                 ImageUrl = "updatedimage.jpg",
                 //Category = new CategoryDto { Id = 1, Name = "Updated Category", Description = "Updated Description", IsActive = 1, ImageUrl = "updatedcategory.jpg" },
                 //Suppliers = new SupplierDTO { Id = 1, Name = "Updated Supplier", Email = "updatedsupplier@example.com", Phone = "9876543210" }

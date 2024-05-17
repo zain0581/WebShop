@@ -62,8 +62,9 @@ namespace IMSWeb.Controllers
             {
                 Name = request.Name,
                 Description = request.Description,
-                IsAvailable = request.IsAvailable,
+                Qty = request.Qty,
                 ImageUrl = request.ImageUrl,
+                UnitPrice = request.UnitPrice,
                 Category = category,
                 Suppliers = supplier
             };
@@ -77,7 +78,8 @@ namespace IMSWeb.Controllers
                 Id = createdInventoryItem.Id,
                 Name = createdInventoryItem.Name,
                 Description = createdInventoryItem.Description,
-                IsAvailable = createdInventoryItem.IsAvailable,
+                Qty = createdInventoryItem.Qty,
+                UnitPrice=createdInventoryItem.UnitPrice,
                 ImageUrl = createdInventoryItem.ImageUrl,
                 Category = new CategoryDto()
                 {
@@ -174,7 +176,7 @@ namespace IMSWeb.Controllers
             {
                 Name = request.Name,
                 Description = request.Description,
-                IsAvailable = request.IsAvailable,
+                Qty = request.Qty,
                 ImageUrl = request.ImageUrl,
                 //Category = request.Category,
             };
@@ -185,7 +187,7 @@ namespace IMSWeb.Controllers
                 Id = createdInventoryItem.Id,
                 Name = createdInventoryItem.Name,
                 Description = createdInventoryItem.Description,
-                IsAvailable = createdInventoryItem.IsAvailable,
+                Qty = createdInventoryItem.Qty,
                 ImageUrl = createdInventoryItem.ImageUrl,
 
             };

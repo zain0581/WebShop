@@ -1,0 +1,246 @@
+/* General container padding */
+.container-fluid {
+  padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 600;
+  font-size: 22px;
+  color: #343a40;
+}
+
+.dropdown-menu a {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Search wrapper styling */
+.search-wrapper {
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+/* Cart title styling */
+.cart-title h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+/* Table styling */
+.table {
+  margin-bottom: 0;
+}
+
+.table thead {
+  background-color: #343a40;
+  color: #ffffff;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px;
+}
+
+.table th {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.table td {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.cart_product_img img {
+  max-width: 80px;
+  border-radius: 5px;
+}
+
+.cart_product_desc h5 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.cart_product_desc p {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+/* Quantity button styling */
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-btn {
+  padding: 2px 6px; /* Reduced padding */
+  margin: 0 2px; /* Reduced margin */
+  font-size: 12px; /* Smaller font size */
+  font-weight: 500;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 3px; /* Smaller border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.qty-btn.btn-decrement {
+  background-color: #e0e0e0;
+}
+
+.qty-btn.btn-increment {
+  background-color: #c8e6c9;
+}
+
+.qty-btn:hover {
+  background-color: #d0d0d0;
+}
+
+.qty-display {
+  font-size: 12px; /* Smaller font size */
+  font-weight: 500;
+  margin: 0 5px; /* Reduced margin */
+}
+
+/* Remove button styling */
+.btn-remove {
+  padding: 2px 6px; /* Reduced padding */
+  font-size: 12px; /* Smaller font size */
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  border-radius: 3px; /* Smaller border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-remove:hover {
+  background-color: #ff1744;
+}
+
+/* Add to Cart button styling */
+.add-to-cart-btn {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn i {
+  margin-right: 5px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Cart summary styling */
+.cart-summary {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h5 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+}
+
+.summary-table {
+  margin-bottom: 20px;
+}
+
+.summary-table li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.summary-table li span {
+  font-weight: normal;
+}
+
+/* Cart buttons */
+.cart-btn {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-btn .btn {
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cart-btn .btn:hover {
+  background-color: #0056b3;
+}
+
+textarea.form-control {
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-title h2 {
+    font-size: 22px;
+  }
+
+  .table th, .table td {
+    font-size: 12px;
+  }
+
+  .cart-summary h5 {
+    font-size: 18px;
+  }
+
+  .summary-table li {
+    font-size: 12px;
+  }
+
+  .cart-btn .btn {
+    font-size: 12px;
+  }
+}

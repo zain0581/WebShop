@@ -1,124 +1,126 @@
-<div class="container-fluid">
-  <!-- Header Navigation Area -->
-  <div class="row mt-3">
-      <nav class="navbar navbar-light bg-light">
-          <!-- Categories Navigation -->
-          <div *ngFor="let category of categories">
-              <a class="navbar-brand" (click)="headclick(category.id)">
-                  <div class="hover-content" style="cursor: pointer;">
-                      <div class="line"></div>
-                      <h6>{{category.name}}</h6>
-                  </div>
-              </a>
-          </div>
-      </nav>
-  </div>
 
-  <!-- Search Wrapper Area -->
-  <div class="row mt-4">
-      <div class="col-12">
-          <input class="search-wrapper form-control" type="search" name="search" (keyup)="searchInventoryItems()" [(ngModel)]="searchTxt"
-              id="search" placeholder="Type your keyword...">
-      </div>
-  </div>
-
-  <!-- Shopping Cart Section -->
-  <div class="row mt-4">
-      <div class="col-12 col-lg-8">
-          <div class="cart-title mt-50">
-              <h2>Inventory Items</h2>
+        <div class="container-fluid">
+          <!-- Header Navigation Area -->
+          <div class="row mt-3">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+              <a class="navbar-brand" href="#">My Shop</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a *ngFor="let category of categories" class="dropdown-item" (click)="headclick(category.id)">
+                        {{category.name}}
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
           </div>
 
-          <div class="cart-table clearfix">
-              <table class="table table-responsive">
-                  <thead>
-                      <tr>
-                          <th></th>
-                          <th>Name</th>
-                          <th>Description</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                      </tr>
+          <!-- Search Wrapper Area -->
+          <div class="row mt-4">
+            <div class="col-12">
+              <input class="search-wrapper form-control" type="search" name="search" (keyup)="searchInventoryItems()" [(ngModel)]="searchTxt"
+                     id="search" placeholder="Type your keyword...">
+            </div>
+          </div>
+
+          <!-- Inventory Items Section -->
+          <div class="row mt-4">
+            <div class="col-12 col-lg-8">
+              <div class="cart-title mt-50">
+                <h2>Inventory Items</h2>
+              </div>
+              <div class="cart-table clearfix">
+                <table class="table table-responsive table-bordered">
+                  <thead class="thead">
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>($)Price</th>
+                      <th>Add to Cart</th>
+                    </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor='let item of inventoryItemsToDisplay'>
-                          <td class="cart_product_img">
-                              <a href="#"><img src='{{item.imageUrl}}' alt="{{item.name}}"></a>
-                          </td>
-                          <td class="cart_product_desc">
-                              <h5>{{item.name}}</h5>
-                              <p>{{item.description}}</p>
-                          </td>
-                          <td class="price">
-                              <!-- <span>${{item.price}}</span> -->
-                          </td>
-                          <td class="qty">
-                              <div class="qty-btn d-flex">
-                                  <!-- <div class="quantity">
-                                      <a (click)="addtocart(item.id)" class="cart-nav"><img src="assets/img/core-img/cart.png"
-                                              alt="" (click)="addtocart(item.id)"> Add</a>
-                                  </div> -->
-                              </div>
-                          </td>
-                      </tr>
-                  </tbody>
-              </table>
-          </div>
-      </div>
+                    <tr *ngFor='let item of inventoryItemsToDisplay'>
+                      <td class="cart_product_desc">
+                        <h5>{{item.name}}</h5>
+                      </td>
+                      <td class="cart_product_desc">
+                        <p>{{item.description}}</p>
+                      </td>
+                      <td class="price">
+                        <span>{{item.unitPrice ?? 0}}</span>
+                      </td>
+                      <td class="qty">
+                        <button class="btn btn-primary add-to-cart-btn" (click)="addToCart(item)">
+                          <i class="fas fa-cart-plus"></i> Add to Cart
+                        </button>
+                      </td>
 
-      <div class="col-12 col-lg-4">
-          <div class="cart-summary">
-              <h5>Cart Total</h5>
-              <table class="table table-responsive">
-                  <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Price</th>
-                          <th>Quantity</th>
-                      </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Cart Summary Section -->
+            <div class="col-12 col-lg-4">
+              <div class="cart-summary">
+                <h5>Cart Total</h5>
+                <table class="table table-responsive">
+                  <thead class="thead-light">
+                    <tr>
+                      <th>Name</th>
+                      <th>Price</th>
+                      <th>Quantity</th>
+                      <th>Remove</th>
+                    </tr>
                   </thead>
                   <tbody>
-                      <tr *ngFor='let item of inventoryItemsToCheckout'>
-                          <td class="cart_product_desc">
-                              <h5>{{item.name}}</h5>
-                          </td>
-                          <td class="price">
-                              <!-- <span>${{item.price}}</span> -->
-                          </td>
-                          <!-- <td class="qty">
-                              <div class="qty-btn d-flex">
-                                  <div class="quantity">
-                                      <span class="qty-minus"><i (click)="checkoutcart(item.id, 0)"
-                                              class="fa fa-minus" aria-hidden="true"></i></span>
-                                      <input type="number" class="qty-text" id="qty" step="1" min="1" max="300"
-                                          name="quantity" value='{{item.qty}}'>
-                                      <span class="qty-plus"><i (click)="checkoutcart(item.id, 1)"
-                                              class="fa fa-plus" aria-hidden="true"></i></span>
-                                  </div>
-                              </div>
-                          </td> -->
-                      </tr>
-                  </tbody>
-              </table>
+                    <tr *ngFor='let item of inventoryItemsToCheckout'>
+                      <td class="cart_product_desc">
+                        <h5>{{item.name}}</h5>
+                      </td>
+                      <td class="price">
+                        <span>${{item.unitPrice ?? 0}}</span>
+                      </td>
+                      <td class="quantity">
+                        <button class="qty-btn btn-decrement" (click)="decrementQuantity(item)">-</button>
+                        <span class="qty-display">{{item.qty}}</span>
+                        <button class="qty-btn btn-increment" (click)="incrementQuantity(item)">+</button>
+                      </td>
+                      <td>
+                        <button class="btn btn-danger btn-remove" (click)="removeFromCart(item)">Remove</button>
+                      </td>
 
-              <ul class="summary-table">
+
+                    </tr>
+                  </tbody>
+                </table>
+
+                <ul class="summary-table">
                   <li><span>Sub Total:</span> <span>${{totalPrice}}</span></li>
-              </ul>
+                </ul>
 
-              <div class="col-md-12 mb-3">
+                <div class="col-md-12 mb-3">
                   <div class="cart-btn mt-10" role="group">
-                      <button type="button" (click)="onChange(1)" class="btn amado-btn w-100">Delivery</button>
-                      <button type="button" (click)="onChange(2)" class="btn amado-btn w-100">Dine In</button>
+                    <button type="button" (click)="onChange(1)" class="btn amado-btn w-100">Delivery</button>
+                    <button type="button" (click)="onChange(2)" class="btn amado-btn w-100">Buy</button>
                   </div>
                   <div class="mt-30">
-                      <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="5"
-                          placeholder="{{checkoutText}}" title=""></textarea>
+                    <textarea name="comment" class="form-control w-100" id="comment" cols="30" rows="5"
+                              placeholder="{{checkoutText}}" title=""></textarea>
                   </div>
+                </div>
               </div>
-              <div class="cart-btn mt-50">
-                  <a (click)="saveInventoryItem()" class="btn amado-btn w-100">Checkout</a>
-              </div>
+            </div>
           </div>
-      </div>
-  </div>
-</div>
+        </div>

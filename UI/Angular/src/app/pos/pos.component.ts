@@ -1,15 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-// import { HeaderItem } from '../models/headeritem';
-// import { FoodItem } from '../models/fooditem';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-// import { FoodserviceService } from '../services/foodservice.service';
 import { CommonModule } from '@angular/common';
-// import { FoodCategory } from '../models/foodcategory';
-
-// import { FoodItemVM } from '../viewmodels/fooditemvm';
-// import { FoodorderService } from '../services/foodorder.service';
-// import { FoodOrder } from '../models/foodorder';
 import { InventoryItem } from '../models/InventoryItem';
 import { Category } from '../models/category';
 import { Supplier } from '../models/supplier';
@@ -20,160 +12,28 @@ import { SupplierService } from '../services/supplier.service';
 @Component({
   selector: 'app-pos',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,ReactiveFormsModule,FormsModule],
+  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './pos.component.html',
-  styleUrl: './pos.component.css'
+  styleUrls: ['./pos.component.css']
 })
-export class PosComponent implements OnInit{
-
-  // // foodCategories: FoodCategory[] = [];
-
-
-
-
-  // // headdtlist:HeaderItem[]=[]
-  // fooditems:FoodItem[]=[];
-  // foodtodisplay:FoodItem[]=[];
-  // foodtocheckout:FoodItem[]=[];
-
-  // searchtxt:string="";
-  // totalprice:number=0;
-  // selectedTeam = '';
-  // checkouttext='';
-
-  // orderform: FormGroup = this.formbuilder.group({
-
-  //   _id: [0, Validators.required],
-  //   price: ['', Validators.required],
-  //   qty: ['', Validators.required],
-  //   totalprice: ['', Validators.required],
-  //   comment: ['', Validators.required]
-
-  // });
-
-
-
-
-  // constructor(private formbuilder: FormBuilder, private _router: Router, private foodorder : FoodorderService, private fooditemservice :FoodserviceService)
-  // {
-
-
-  //     this.foodtodisplay=this.fooditems;
-  // }
-  // ngOnInit(): void {
-  //   throw new Error('Method not implemented.');
-  // }
-
-
-
-  // // ngOnInit(): void {
-  // //   this.foodcategoryService.getFoodCategories().subscribe(categories => {
-  // //     this.foodCategories = categories;
-  // //     console.log(this.foodCategories);
-  // //   });
-
-  // //   this.fooditemservice.getfooditems().subscribe(items => {
-  // //     this.fooditems = items;
-  // //     console.log(this.fooditems);
-  // //   });
-
-  // // }
-
-  // saveOrderForm(){
-  //   this.foodtocheckout.forEach((element,index)=>{
-  //     const foodorder: FoodOrder = {
-  //      itemid  : element._id?.toString(),
-  //       price: element.price,
-  //       qty: element.qty,
-  //       totalprice: this.totalprice,
-  //       description: "todo",
-  //       orderno: "1"
-
-  //     };
-  //     this.foodorder.createFoodOrder(foodorder).subscribe();
-
-  //   });
-  //   // alert(JSON .stringify(this.foodtocheckout))
-  // }
-
-
-  // headclick(id:any)
-  // {
-  //   this.foodtodisplay=this.fooditems.filter(x=>x.category==id);
-
-  // }
-
-  // addtocart(id:any)
-  // {
-
-  //   var obj:any=this.foodtodisplay.find(x=>x._id==id);
-
-  //    if(this.foodtocheckout.includes(obj))
-  //     {
-  //     this.foodtocheckout.forEach((element,index)=>{
-  //             if(element._id==obj._id){
-  //             this.foodtocheckout[index].qty=this.foodtocheckout[index].qty+1
-  //             this.totalprice=this.totalprice+this.foodtocheckout[index].price
-  //           }
-  //     });
-  //     }else
-  //     {
-  //       this.foodtocheckout.push(obj)
-  //       this.totalprice=this.totalprice+obj.price
-  //     }
-  // }
-
-  // checkoutcart(id:any,flg:number)
-  // {
-  //   this.foodtocheckout.forEach((element,index)=>{
-  //     if(element._id==id && flg==1)
-  //     {
-  //        this.foodtocheckout[index].qty=this.foodtocheckout[index].qty+1
-  //        this.totalprice=this.totalprice+this.foodtocheckout[index].price
-  //     }
-  //     else  if(element._id==id && flg==0)
-  //      {
-  //       this.totalprice=this.totalprice-this.foodtocheckout[index].price
-  //       if(element.qty>1){
-
-  //         this.foodtocheckout[index].qty=this.foodtocheckout[index].qty-1
-
-  //         }else{
-  //         this.foodtocheckout.splice(index,1)
-  //         }
-  //     }
-
-  //    });
-  // }
-
-  // seachfood()
-  // {
-  //   this.foodtodisplay=this.fooditems.filter(x=>x.name.toLowerCase().includes(this.searchtxt.toLowerCase()))
-  // }
-
-  // onChange(index:number) {
-  //      if(index.toString()=="1")
-  //       this.checkouttext="Delivery Address "
-  //     else if(index.toString()=="2")
-  //     this.checkouttext="Dine In Table No. "
-  // }
-
+export class PosComponent implements OnInit {
   inventoryItems: InventoryItem[] = [];
   inventoryItemsToDisplay: InventoryItem[] = [];
   inventoryItemsToCheckout: InventoryItem[] = [];
-
   searchTxt: string = "";
   totalPrice: number = 0;
   checkoutText = '';
+  
 
-  inventoryForm: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    description: ['', Validators.required],
-    isAvailable: [null],
-    imageUrl: [null],
-    category: [null, Validators.required],
-    supplier: [null, Validators.required]
-  });
+  // inventoryForm: FormGroup = this.formBuilder.group({
+  //   name: ['', Validators.required],
+  //   description: ['', Validators.required],
+  //   qty: [null],
+  //   imageUrl: [null],
+  //   unitPrice: [0, Validators.required],
+  //   category: [null, Validators.required],
+  //   supplier: [null, Validators.required]
+  // });
 
   categories: Category[] = [];
   suppliers: Supplier[] = [];
@@ -213,66 +73,41 @@ export class PosComponent implements OnInit{
     });
   }
 
-  saveInventoryItem(): void {
-    if (this.inventoryForm.valid) {
-      const formData = this.inventoryForm.value;
-
-      if (!formData.category || !formData.supplier) {
-        console.error('Category or supplier is undefined');
-        return;
-      }
-
-      const inventoryItem: InventoryItem = {
-        id: 0,
-        name: formData.name,
-        description: formData.description,
-        isAvailable: formData.isAvailable,
-        imageUrl: formData.imageUrl,
-        category: formData.category,
-        suppliers: formData.supplier
-      };
-
-      this.inventoryService.createInvnentoryItem(inventoryItem).subscribe({
-        next: () => {
-          alert("Inventory item added successfully");
-          this.loadInventoryItems();
-        },
-        error: (error) => {
-          console.error(error);
-        }
-      });
-    }
-  }
 
   headclick(id: any): void {
     this.inventoryItemsToDisplay = this.inventoryItems.filter(x => x.category?.id == id);
   }
 
-  // addtocart(id: any): void {
-  //   const item = this.inventoryItemsToDisplay.find(x => x.id === id);
-  //   if (item && !this.inventoryItemsToCheckout.includes(item)) {
-  //     this.inventoryItemsToCheckout.push({ ...item, qty: 1 });
-  //   } else if (item) {
-  //     const index = this.inventoryItemsToCheckout.findIndex(x => x.id === id);
-  //     this.inventoryItemsToCheckout[index].qty += 1;
-  //   }
-  // }
+  addToCart(item: InventoryItem): void {
+    const existingItem = this.inventoryItemsToCheckout.find(cartItem => cartItem.id === item.id);
+    if (existingItem) {
+      existingItem.qty = (existingItem.qty ?? 1) + 1;
+    } else {
+      item.qty = 1;
+      this.inventoryItemsToCheckout.push(item);
+    }
+    this.totalPrice += item.unitPrice ?? 0;
+  }
 
-  // checkoutcart(id: any, flg: number): void {
-  //   this.inventoryItemsToCheckout.forEach((element, index) => {
-  //     if (element.id == id && flg == 1) {
-  //       this.inventoryItemsToCheckout[index].qty = this.inventoryItemsToCheckout[index].qty + 1;
-  //       this.totalPrice = this.totalPrice + this.inventoryItemsToCheckout[index].price;
-  //     } else if (element.id == id && flg == 0) {
-  //       this.totalPrice = this.totalPrice - this.inventoryItemsToCheckout[index].price;
-  //       if (element.qty > 1) {
-  //         this.inventoryItemsToCheckout[index].qty = this.inventoryItemsToCheckout[index].qty - 1;
-  //       } else {
-  //         this.inventoryItemsToCheckout.splice(index, 1);
-  //       }
-  //     }
-  //   });
-  // }
+  removeFromCart(item: InventoryItem): void {
+    const index = this.inventoryItemsToCheckout.indexOf(item);
+    if (index > -1) {
+      this.totalPrice -= (item.unitPrice ?? 0) * (item.qty ?? 1);
+      this.inventoryItemsToCheckout.splice(index, 1);
+    }
+  }
+
+  incrementQuantity(item: InventoryItem): void {
+    item.qty = (item.qty ?? 1) + 1;
+    this.totalPrice += item.unitPrice ?? 0;
+  }
+
+  decrementQuantity(item: InventoryItem): void {
+    if (item.qty && item.qty > 1) {
+      item.qty--;
+      this.totalPrice -= item.unitPrice ?? 0;
+    }
+  }
 
   searchInventoryItems(): void {
     this.inventoryItemsToDisplay = this.inventoryItems.filter(x => x.name.toLowerCase().includes(this.searchTxt.toLowerCase()));
@@ -283,5 +118,10 @@ export class PosComponent implements OnInit{
       this.checkoutText = "Delivery Address";
     else if (index.toString() == "2")
       this.checkoutText = "Dine In Table No.";
+  }
+
+  checkout(): void {
+    // Handle checkout logic here
+    alert('Checkout functionality to be implemented');
   }
 }

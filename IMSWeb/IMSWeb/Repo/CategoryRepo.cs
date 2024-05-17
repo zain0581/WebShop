@@ -83,7 +83,7 @@ namespace IMSWeb.Repo
                             Id = i.Id,
                             Name = i.Name,
                             Description = i.Description,
-                            IsAvailable = i.IsAvailable,
+                            Qty = i.Qty,
                             ImageUrl = i.ImageUrl
                         }).ToList()
 
@@ -107,7 +107,7 @@ namespace IMSWeb.Repo
 
             if (category == null)
             {
-                return null; // or throw an exception, depending on your requirement
+                return null; // or thro
             }
 
             return new Category
@@ -122,9 +122,9 @@ namespace IMSWeb.Repo
                     Id = ii.Id,
                     Name = ii.Name,
                     Description = ii.Description,
-                    IsAvailable = ii.IsAvailable,
+                    Qty = ii.Qty,
                     ImageUrl = ii.ImageUrl,
-                    // You can include other properties as needed
+                    // Y properties as 
                 }).ToList()
             };
         }
@@ -138,7 +138,7 @@ namespace IMSWeb.Repo
 
             if (category == null)
             {
-                return null; // or throw an exception, depending on your requirement
+                return null; 
             }
             return new Category
             {
@@ -152,9 +152,9 @@ namespace IMSWeb.Repo
                     Id = ii.Id,
                     Name = ii.Name,
                     Description = ii.Description,
-                    IsAvailable = ii.IsAvailable,
+                    Qty = ii.Qty,
                     ImageUrl = ii.ImageUrl,
-                    // we can include other properties as needed
+                    // we can include
                 }).ToList()
             };
 
@@ -183,7 +183,7 @@ namespace IMSWeb.Repo
             }
             catch (Exception)
             {
-                // Log or handle the exception as needed
+                // Log or handle the
                 return false;
             }
         }

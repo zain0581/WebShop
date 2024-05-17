@@ -8,7 +8,7 @@ import { InventoryItemService } from '../../services/inventory-item.service';
 import { InventoryItem } from '../../models/InventoryItem';
 import { AddcategoryService } from '../../services/addcategory.service';
 import { SupplierService } from '../../services/supplier.service';
-import { Inventory } from '../../models/updatteitem';
+// import { Inventory } from '../../models/updatteitem';
 
 @Component({
   selector: 'app-edit-inventoryitem',

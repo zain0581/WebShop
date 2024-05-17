@@ -61,7 +61,7 @@ namespace IMSWeb.Controllers
                 Name = "Test",
                 Description = "Test",
                 ImageUrl ="bd",
-                IsAvailable=0,
+                Qty = 0,
                
               Category = _context.Categories.Find(1),
               Suppliers = _context.Suppliers.Find(1),

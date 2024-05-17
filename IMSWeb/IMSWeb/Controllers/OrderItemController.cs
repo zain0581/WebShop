@@ -76,7 +76,7 @@ namespace IMSWeb.Controllers
                     Id = inventoryItem.Id,
                     Description = inventoryItem.Description,
                     ImageUrl = inventoryItem.ImageUrl,
-                    IsAvailable = inventoryItem.IsAvailable,
+                    Qty = inventoryItem.Qty,
                     Name   = inventoryItem.Name
                     
                     

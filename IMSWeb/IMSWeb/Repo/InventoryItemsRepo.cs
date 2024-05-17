@@ -82,8 +82,9 @@ namespace IMSWeb.Repo
                 Id = i.Id,
                 Name = i.Name,
                 Description = i.Description,
-                IsAvailable = i.IsAvailable,
+                Qty = i.Qty,
                 ImageUrl = i.ImageUrl,
+                UnitPrice=i.UnitPrice,
                 Category = i.Category != null ? new CategoryDto
                 {
                     Id = i.Category.Id,
@@ -128,7 +129,7 @@ namespace IMSWeb.Repo
                 Id = inventoryItem.Id,
                 Name = inventoryItem.Name,
                 Description = inventoryItem.Description,
-                IsAvailable = inventoryItem.IsAvailable,
+               Qty  = inventoryItem. Qty,
                 ImageUrl = inventoryItem.ImageUrl,
                 //Category = inventoryItem.Category != null ? new CategoryDto
                 //{
@@ -170,7 +171,7 @@ namespace IMSWeb.Repo
                 Id = inventoryItem.Id,
                 Name = inventoryItem.Name,
                 Description = inventoryItem.Description,
-                IsAvailable = inventoryItem.IsAvailable,
+                Qty = inventoryItem.Qty,
                 ImageUrl = inventoryItem.ImageUrl,
                 //Category = inventoryItem.Category != null ? new CategoryDto
                 //{
@@ -210,7 +211,7 @@ namespace IMSWeb.Repo
             // Update the properties of the retrieved inventory item with the values from the DTO
             inventoryItem.Name = inventoryItemDto.Name;
             inventoryItem.Description = inventoryItemDto.Description;
-            inventoryItem.IsAvailable = inventoryItemDto.IsAvailable;
+            inventoryItem.Qty = inventoryItemDto.   Qty;
             inventoryItem.ImageUrl = inventoryItemDto.ImageUrl;
            
 

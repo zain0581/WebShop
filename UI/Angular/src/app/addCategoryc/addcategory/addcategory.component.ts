@@ -41,4 +41,8 @@ export class AddcategoryComponent {
        this.router.navigate(['/category']);
     });
   }
+
+  onCancel(): void {
+    this.router.navigate(['/category']);
+  }
 }

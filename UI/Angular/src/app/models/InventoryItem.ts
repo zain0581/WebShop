@@ -5,8 +5,9 @@ export interface InventoryItem {
    id: number;
   name: string;
   description?: string;
-  isAvailable?: number;
+  qty?: number;
   imageUrl?: string;
+  unitPrice?: number;
   // categoryId?: number;
   // supplierId?: number;
   category?: Category;
