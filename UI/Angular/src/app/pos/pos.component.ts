@@ -8,11 +8,16 @@ import { Supplier } from '../models/supplier';
 import { InventoryItemService } from '../services/inventory-item.service';
 import { AddcategoryService } from '../services/addcategory.service';
 import { SupplierService } from '../services/supplier.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { PurchaseDialogComponent } from '../Purchase/purchase-dialog/purchase-dialog.component';
+
 
 @Component({
   selector: 'app-pos',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, FormsModule, MatButtonModule,MatDialogModule,MatInputModule],
   templateUrl: './pos.component.html',
   styleUrls: ['./pos.component.css']
 })
@@ -22,8 +27,34 @@ export class PosComponent implements OnInit {
   inventoryItemsToCheckout: InventoryItem[] = [];
   searchTxt: string = "";
   totalPrice: number = 0;
-  checkoutText = '';
-  
+  // checkoutText = '';
+  checkoutText: string = 'Enter your address for delivery';
+  step: number = 1;
+
+
+
+  onChange(index: number): void {
+    if (index === 1) {
+      this.checkoutText = 'Enter your address for delivery';
+      this.step = 1;
+    } else if (index === 2) {
+      this.proceedToAddressForm();
+    }
+  }
+
+  proceedToAddressForm(): void {
+    this.step = 2;
+    const dialogRef = this.dialog.open(PurchaseDialogComponent, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.step = 3;
+      }
+    });
+  }
+
 
   // inventoryForm: FormGroup = this.formBuilder.group({
   //   name: ['', Validators.required],
@@ -43,14 +74,15 @@ export class PosComponent implements OnInit {
     private router: Router,
     private inventoryService: InventoryItemService,
     private categoryService: AddcategoryService,
-    private supplierService: SupplierService
+    private supplierService: SupplierService,
+    public dialog: MatDialog
   ) {
     this.inventoryItemsToDisplay = this.inventoryItems;
   }
 
   ngOnInit(): void {
     this.loadCategories();
-    this.loadSuppliers();
+    // this.loadSuppliers();
     this.loadInventoryItems();
   }
 
@@ -60,11 +92,11 @@ export class PosComponent implements OnInit {
     });
   }
 
-  loadSuppliers(): void {
-    this.supplierService.getallsupplier().subscribe(suppliers => {
-      this.suppliers = suppliers;
-    });
-  }
+  // loadSuppliers(): void {
+  //   this.supplierService.getallsupplier().subscribe(suppliers => {
+  //     this.suppliers = suppliers;
+  //   });
+  // }
 
   loadInventoryItems(): void {
     this.inventoryService.getallinventoryitems().subscribe(items => {
@@ -113,15 +145,15 @@ export class PosComponent implements OnInit {
     this.inventoryItemsToDisplay = this.inventoryItems.filter(x => x.name.toLowerCase().includes(this.searchTxt.toLowerCase()));
   }
 
-  onChange(index: number): void {
-    if (index.toString() == "1")
-      this.checkoutText = "Delivery Address";
-    else if (index.toString() == "2")
-      this.checkoutText = "Dine In Table No.";
-  }
+  // onChange(index: number): void {
+  //   if (index.toString() == "1")
+  //     this.checkoutText = "Delivery Address";
+  //   else if (index.toString() == "2")
+  //     this.checkoutText = ".";
+  // }
 
-  checkout(): void {
-    // Handle checkout logic here
-    alert('Checkout functionality to be implemented');
-  }
+  // checkout(): void {
+
+  //   alert('Checkout functionality to be implemented');
+  // }
 }

@@ -45,14 +45,13 @@ export class InventoryitemListComponent {
   onDelete(id: number): void {
     if (id !== undefined) {
       this.inventoryservice.deleteInventory(id.toString()).subscribe({
-        next: () => {
-          alert("Inventory item deleted successfully");
-          this.refreshInventory();
-        },
-        error: (eror) => {
-          console.error('Error deleting inventory item:', eror);
-          // Handle error appropriately (e.g., display error message)
-        }
+        error: (error) => {
+          if (error.status === 200) {
+            // Treat HTTP status code 200 as a success
+            alert("Item has been deleted successfully");
+            this.inventory$ = this.inventoryservice.getallinventoryitems();
+          }
+          }
       });
     }
   }
